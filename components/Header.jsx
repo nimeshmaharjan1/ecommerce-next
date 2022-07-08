@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 const Header = () => {
@@ -49,6 +49,7 @@ const Header = () => {
           </div>
         </div>
         <div className="dropdown dropdown-end">
+          0
           <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img src="https://placeimg.com/80/80/people" />

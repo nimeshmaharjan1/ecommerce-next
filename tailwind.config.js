@@ -8,6 +8,9 @@ module.exports = {
       boxShadow: {
         topShadow: "0 -3px 10px 3px rgba(0, 0, 0, 0.1)",
       },
+      gridTemplateRows: {
+        "[auto,auto,1fr]": "auto auto 1fr",
+      },
     },
   },
   daisyui: {
@@ -35,5 +38,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("@tailwindcss/aspect-ratio")],
 };
