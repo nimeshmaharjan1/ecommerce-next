@@ -1,3 +1,4 @@
+import { Product } from "./constants";
 const data = {
   products: [
     {
@@ -72,7 +73,7 @@ const data = {
       countInStock: 20,
       description: "A popular pants",
     },
-  ],
+  ] as Product[],
 };
 
 export default data;

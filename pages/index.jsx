@@ -2,7 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Item from "../components/Home/Item";
 import Layout from "../components/Layout";
-import data from "../utils/data";
+import data from "../utils/data.ts";
+
 export default function Home() {
   return (
     <Layout title={"Home"}>

@@ -1,13 +1,22 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
+import { useReducer } from "react";
 import Layout from "../../components/Layout";
 import data from "../../utils/data";
-
+import { Store } from "../../store/index";
 const ProductDetails = () => {
   const { query } = useRouter();
   const { slug } = query;
   const product = data.products.find((product) => product.slug === slug);
+  const { state, dispatch } = useContext(Store);
+  const { cart } = state;
+  const addToCartHandler = (e) => {
+    e.preventDefault();
+    console.log("Initial state", cart);
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity: 1 } });
+    console.log("after adding", cart);
+  };
   if (!product) {
     return <div>Product not found!</div>;
   }
@@ -410,8 +419,9 @@ const ProductDetails = () => {
                 </fieldset>
               </div>
               <button
+                onClick={(e) => addToCartHandler(e)}
                 disabled={product.countInStock == 0}
-                type="submit"
+                type="button"
                 className="disabled:opacity-25 mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 {product.countInStock > 0 ? "Add to bag" : "Out of stock"}
